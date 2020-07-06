@@ -2,12 +2,25 @@ import React, { useState, useEffect } from 'react';
 import { RiTodoLine } from 'react-icons/ri';
 import { FaPlus } from 'react-icons/fa';
 
+import api from '../../services/api';
+
 import { ImageComponent, InfoHeader } from '../../components';
 
 import { Container, Content, Form, SubmitButton, FormContent } from './styles';
 
 function Main() {
   const [newTaks, setNewTask] = useState('');
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const { data } = await api.get('api/tarefas');
+
+      setTasks(data);
+    }
+
+    fetchData();
+  }, []);
 
   const handleInputChange = (e) => {
     setNewTask(e.target.value);
