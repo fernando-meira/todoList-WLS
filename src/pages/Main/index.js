@@ -1,16 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { RiTodoLine } from 'react-icons/ri';
-import { FaPlus } from 'react-icons/fa';
+import { FaListAlt } from 'react-icons/fa';
 
 import api from '../../services/api';
 
-import { ImageComponent, InfoHeader } from '../../components';
+import {
+  Input,
+  Button,
+  ListToDo,
+  InfoHeader,
+  ImageComponent,
+} from '../../components';
 
-import { Container, Content, Form, SubmitButton, FormContent } from './styles';
+import { Container, Content, FormComponent, FormContent } from './styles';
 
 function Main() {
-  const [newTaks, setNewTask] = useState('');
   const [tasks, setTasks] = useState([]);
+  const [newTaks, setNewTask] = useState('');
+  const [checked, setChecked] = useState(true);
+
+  const toogleCheck = () => {
+    setChecked(!checked);
+    console.log('checked', checked);
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -26,11 +37,9 @@ function Main() {
     setNewTask(e.target.value);
   };
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log(newTaks);
-  }
+  };
 
   return (
     <>
@@ -40,25 +49,38 @@ function Main() {
         <Content>
           <ImageComponent />
 
-          <FormContent>
-            <h1>
-              <RiTodoLine color="#5e68c3" />
-              Lista de tarefas
-            </h1>
+          <div>
+            <FormContent>
+              <h1>
+                <FaListAlt color="#5e68c3" size={24} />
+                Lista de tarefas
+              </h1>
+              <FormComponent onSubmit={handleSubmit}>
+                <Input
+                  name="title"
+                  type="text"
+                  placeholder="Titulo da tarefa"
+                />
 
-            <Form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                placeholder="Adicionar uma tarefa"
-                value={newTaks}
-                onChange={handleInputChange}
-              />
+                <Input
+                  name="description"
+                  type="text"
+                  placeholder="Descrição da tarefa"
+                />
 
-              <SubmitButton>
-                <FaPlus size={20} color="#fff" />
-              </SubmitButton>
-            </Form>
-          </FormContent>
+                <Input
+                  name="check"
+                  type="checkbox"
+                  value={checked}
+                  onChange={toogleCheck}
+                />
+
+                <Button />
+              </FormComponent>
+            </FormContent>
+
+            <ListToDo data={tasks} />
+          </div>
         </Content>
       </Container>
     </>

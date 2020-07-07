@@ -1,10 +1,12 @@
 import styled from 'styled-components';
+import { Form } from '@unform/web';
 
 import { pxToRem } from '../../functions';
 
 export const Container = styled.div`
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 
   display: flex;
   align-items: center;
@@ -16,11 +18,21 @@ export const Content = styled.div`
   height: 100%;
 
   display: flex;
-  align-items: center;
   flex-direction: row;
+  align-items: flex-start;
+
+  & div {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 `;
 
 export const FormContent = styled.div`
+  margin-top: 10%;
+
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -38,35 +50,14 @@ export const FormContent = styled.div`
   }
 `;
 
-export const Form = styled.form`
+export const FormComponent = styled(Form)`
   min-width: 500px;
 
   margin-top: ${pxToRem(32)};
   display: flex;
   flex-direction: row;
 
-  & input {
-    padding: 8px 12px;
-    border-radius: 4px;
-    border: 1px solid #eee;
-
-    flex: 1;
-
-    font-size: 16px;
+  input + input {
+    margin-left: ${pxToRem(10)};
   }
-`;
-
-export const SubmitButton = styled.button.attrs({
-  type: 'submit',
-})`
-  border: 0;
-  padding: 0 10px;
-  margin-left: ${pxToRem(8)};
-  border-radius: ${pxToRem(4)};
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: #5e68c3;
 `;
