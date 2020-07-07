@@ -15,12 +15,21 @@ import { Container, Content, FormComponent, FormContent } from './styles';
 
 function Main() {
   const [tasks, setTasks] = useState([]);
-  const [newTaks, setNewTask] = useState('');
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(0);
+  const [newTask, setNewTask] = useState({});
+
+  console.log(newTask);
 
   const toogleCheck = () => {
-    setChecked(!checked);
-    console.log('checked', checked);
+    const checkedValue = checked;
+
+    return checkedValue === 0 ? setChecked(1) : setChecked(0);
+  };
+
+  const handleSubmit = (data, { reset }) => {
+    setNewTask(data);
+
+    reset();
   };
 
   useEffect(() => {
@@ -32,14 +41,6 @@ function Main() {
 
     fetchData();
   }, []);
-
-  const handleInputChange = (e) => {
-    setNewTask(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
 
   return (
     <>
@@ -57,19 +58,19 @@ function Main() {
               </h1>
               <FormComponent onSubmit={handleSubmit}>
                 <Input
-                  name="title"
+                  name="titulo"
                   type="text"
                   placeholder="Titulo da tarefa"
                 />
 
                 <Input
-                  name="description"
+                  name="descricao"
                   type="text"
                   placeholder="Descrição da tarefa"
                 />
 
                 <Input
-                  name="check"
+                  name="concluido"
                   type="checkbox"
                   value={checked}
                   onChange={toogleCheck}
