@@ -31,7 +31,7 @@ export const Container = styled.div`
 
       > strong {
         font-size: 1.5rem;
-        text-transform: uppercase;
+        text-transform: initial;
       }
 
       > p {

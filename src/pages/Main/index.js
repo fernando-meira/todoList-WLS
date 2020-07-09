@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { FaListAlt } from 'react-icons/fa';
 
 import api from '../../services/api';
@@ -16,27 +16,35 @@ import { Container, Content, FormComponent, FormContent } from './styles';
 function Main() {
   const [tasks, setTasks] = useState([]);
   const [checked, setChecked] = useState(0);
-  const [newTask, setNewTask] = useState({});
 
-  console.log(newTask);
-
-  const toogleCheck = () => {
+  const toggleCheck = useCallback(() => {
     const checkedValue = checked;
 
     return checkedValue === 0 ? setChecked(1) : setChecked(0);
-  };
+  }, [checked, tasks]);
 
   const handleSubmit = (data, { reset }) => {
-    setNewTask(data);
+    // try {
+    //   api.post('api/tarefas', data);
+    // } catch (error) {
+    //   console.log('Error', error);
+    // }
+
+    console.log(data);
+    setTasks([...tasks, data]);
 
     reset();
   };
 
   useEffect(() => {
     async function fetchData() {
-      const { data } = await api.get('api/tarefas');
+      try {
+        const { data } = await api.get('api/tarefas');
 
-      setTasks(data);
+        setTasks(data);
+      } catch (error) {
+        console.log(error);
+      }
     }
 
     fetchData();
@@ -67,16 +75,20 @@ function Main() {
                   name="descricao"
                   type="text"
                   placeholder="Descrição da tarefa"
+                  textarea
+                  maxLength="190"
                 />
 
-                <Input
-                  name="concluido"
-                  type="checkbox"
-                  value={checked}
-                  onChange={toogleCheck}
-                />
+                <span>
+                  <Input
+                    name="concluido"
+                    type="checkbox"
+                    value={checked}
+                    onChange={toggleCheck}
+                  />
 
-                <Button />
+                  <Button />
+                </span>
               </FormComponent>
             </FormContent>
 

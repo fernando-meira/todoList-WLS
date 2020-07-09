@@ -6,7 +6,7 @@ import { Container } from './styles';
 export default function Button() {
   return (
     <Container>
-      <FaPlus size={20} color="#fff" />
+      <FaPlus size={16} color="#fff" />
     </Container>
   );
 }

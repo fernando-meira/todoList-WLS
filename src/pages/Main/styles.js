@@ -52,12 +52,21 @@ export const FormContent = styled.div`
 
 export const FormComponent = styled(Form)`
   min-width: 500px;
-
   margin-top: ${pxToRem(32)};
+
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+
+  > span {
+    height: ${pxToRem(32)};
+    margin-top: ${pxToRem(10)};
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
 
   input + input {
-    margin-left: ${pxToRem(10)};
+    margin-top: ${pxToRem(10)};
   }
 `;
