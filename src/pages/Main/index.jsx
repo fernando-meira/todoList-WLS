@@ -57,7 +57,7 @@ function Main() {
           <div>
             <FormContent>
               <h1>
-                <FaListAlt color={colors.purple} size={24} />
+                <FaListAlt color={colors.black} size={24} />
                 Lista de tarefas
               </h1>
               <FormComponent onSubmit={handleSubmit}>

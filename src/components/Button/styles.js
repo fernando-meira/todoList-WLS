@@ -15,5 +15,5 @@ export const Container = styled.button.attrs({
   align-items: center;
   justify-content: center;
 
-  background: ${colors.purple};
+  background: ${colors.lightRed};
 `;

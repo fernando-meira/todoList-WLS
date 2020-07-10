@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 import { colors } from '../../themes';
 import { pxToRem } from '../../functions';
@@ -12,6 +13,10 @@ export const Container = styled.input`
 
   font-size: 16px;
 
+  ${media.lessThan('small')`
+    border: 1px solid ${colors.lightRed};
+  `}
+
   ${(props) =>
     props.type === 'checkbox' &&
     css`
@@ -19,7 +24,7 @@ export const Container = styled.input`
       height: 100%;
       padding: 8px 12px;
       border-radius: ${pxToRem(4)};
-      border: 1px solid ${colors.purple};
+      border: 1px solid ${colors.lightRed};
 
       display: flex;
       align-items: center;
@@ -29,10 +34,10 @@ export const Container = styled.input`
       background: ${colors.white};
 
       :checked {
-        border: 1px solid ${colors.purple};
+        border: 1px solid ${colors.lightRed};
 
         color: ${colors.white};
-        background-color: ${colors.purple};
+        background-color: ${colors.lightRed};
       }
       :after {
         content: '';

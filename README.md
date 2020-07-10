@@ -1,4 +1,3 @@
-
 <div align="center">
   <img src="https://wlssistemas.com.br/wp-content/uploads/2020/06/wls-face.png" >
 </div>
@@ -7,7 +6,11 @@
 
 O Projeto mostra uma lista de tarefas, onde é possível criar, excluir e listar tarefas. No desafio precisamos fazer consumo de API.
 
-- Tempo levado para finalizar: 8horas 10m
+- Tempo levado para finalizar: 8horas 35m
+
+## Demo
+
+- [Demo](https://todowls.netlify.app/)
 
 ### Melhorias
 
@@ -48,6 +51,11 @@ Inicie o projeto com o comando:
 - [Prettier](https://prettier.io/)
 - [Commitizen](https://github.com/commitizen/cz-cli)
 
+## Extras
+
+- [Netlify](www.netlify.com) - Hospedagem
+- [Freepik](https://www.freepik.com/) - Imagens
+
 # Teste Front
 
 Tarefas
@@ -84,6 +92,7 @@ Remove a tarefa com o id que foi passado.
 Altera tarefa com o id informado.
 
 JSON exemplo:
+
 ```
     {
         "titulo" : "Tarefa Um",

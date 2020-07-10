@@ -80,6 +80,10 @@ export const FormComponent = styled(Form)`
     display: flex;
     align-items: center;
     flex-direction: row;
+
+    ${media.between('small', 'large')`
+    justify-content: flex-end;
+  `}
   }
 
   input + input {

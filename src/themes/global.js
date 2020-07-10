@@ -21,7 +21,7 @@ export default createGlobalStyle`
     background: #f6f7f9;
     -webkit-font-smoothing: antialiased !important;
 
-    ${media.lessThan('small')`
+    ${media.lessThan('large')`
       background: url(${backgroundTaks}) no-repeat;
     `}
   }

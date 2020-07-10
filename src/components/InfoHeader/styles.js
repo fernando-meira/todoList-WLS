@@ -28,7 +28,7 @@ export const Container = styled.header`
     border-bottom-left-radius: ${pxToRem(8)};
     border-bottom-right-radius: ${pxToRem(8)};
 
-    background: ${colors.purple};
+    background: ${colors.lightRed};
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
 
     > p {

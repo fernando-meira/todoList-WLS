@@ -24,7 +24,7 @@ export default function ListToDo({ data }) {
 
               <span>
                 {task.concluido > 0 && (
-                  <FaCheckCircle size={20} color={colors.purple} />
+                  <FaCheckCircle size={20} color={colors.lightRed} />
                 )}
 
                 <button type="button" onClick={() => removeTask(task.id)}>

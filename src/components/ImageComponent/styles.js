@@ -13,7 +13,7 @@ export const Container = styled.section`
     width: 110%;
   }
 
-  ${media.lessThan('small')`
+  ${media.lessThan('large')`
     display: none;
   `}
 `;
