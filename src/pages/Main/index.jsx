@@ -28,30 +28,21 @@ function Main() {
   }, [checked, tasks]);
 
   const handleSubmit = (data, { reset }) => {
-    // try {
-    //   api.post('api/tarefas', data);
-    // } catch (error) {
-    //   console.log('Error', error);
-    // }
+    try {
+      api.post('api/tarefas', data);
+    } catch (error) {
+      console.log('Error', error);
+    }
 
-    setTasks([...tasks, data]);
+    const newTaks = {
+      ...data,
+      id: Math.random(),
+    };
+
+    setTasks([...tasks, newTaks]);
 
     reset();
   };
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const { data } = await api.get('api/tarefas');
-
-        setTasks(data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    fetchData();
-  }, []);
 
   return (
     <>

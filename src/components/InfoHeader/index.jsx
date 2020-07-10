@@ -6,7 +6,7 @@ export default function InfoHeader() {
   return (
     <Container>
       <p>
-        Desenvolvido por{' '}
+        Teste desenvolvido por{' '}
         <a href="https://fernando-meira.netlify.app/">Fernando Meira</a> para
         <a href="https://www.facebook.com/wlssolucoes"> WLS Soluções</a>.
       </p>

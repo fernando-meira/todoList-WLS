@@ -60,7 +60,7 @@ export const ListItem = styled.li`
       color: ${colors.purple};
     }
 
-    button + svg {
+    svg + button {
       margin-left: ${pxToRem(6)};
     }
   }
