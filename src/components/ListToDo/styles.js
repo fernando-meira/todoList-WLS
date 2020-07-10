@@ -5,7 +5,6 @@ import { colors } from '../../themes';
 
 export const Container = styled.div`
   width: 90%;
-  /* height: 742px; */
   min-width: ${pxToRem(500)};
 
   display: flex;
@@ -22,30 +21,36 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li`
-  max-width: 100%;
-
   position: relative;
 
-  margin: 8px;
-  padding: 1rem;
+  max-width: 100%;
+  margin: ${pxToRem(8)};
+  padding: ${pxToRem(16)};
   border-radius: 12px;
   border: 1px solid ${colors.purple};
 
   list-style: none;
-  background: #fff;
   transition: transform 0.4s;
+  background: ${colors.white};
 
   :hover {
-    transform: scale(0.98);
+    transform: translateX(-4px);
   }
 
-  > strong {
+  > .title {
     font-size: 1.5rem;
     text-transform: initial;
+
+    width: 90%;
+    overflow: hidden;
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
   }
 
   > p {
     font-size: ${pxToRem(14)};
+    white-space: normal;
   }
 
   > span {

@@ -18,7 +18,7 @@ export default function ListToDo({ data }) {
         <StyledCustomScrollBar>
           {data.map((task) => (
             <ListItem key={task.id}>
-              <strong>{task?.titulo}</strong>
+              <p className="title">{task?.titulo}</p>
 
               <p>{task?.descricao}</p>
 
@@ -42,7 +42,7 @@ export default function ListToDo({ data }) {
 ListToDo.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.number || PropTypes.string,
       titulo: PropTypes.string,
       descricao: PropTypes.string,
       concluido: PropTypes.number,

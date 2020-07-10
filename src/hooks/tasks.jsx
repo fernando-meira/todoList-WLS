@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useContext,
+  useCallback,
+  createContext,
+} from 'react';
 import PropTypes from 'prop-types';
 import api from '../services/api';
 
@@ -21,19 +27,22 @@ const TasksProvider = ({ children }) => {
     fetchData();
   }, []);
 
-  const removeTask = (id) => {
-    setTasks((state) => state.filter((task) => task.id !== id));
+  const removeTask = useCallback(
+    (id) => {
+      setTasks((state) => state.filter((task) => task.id !== id));
 
-    if ((state) => state.filter((task) => task.id === id)) {
-      const identify = id;
+      if ((state) => state.filter((task) => task.id === id)) {
+        const identify = id;
 
-      try {
-        api.delete(`api/tarefas/${identify}`);
-      } catch (error) {
-        console.log(error);
+        try {
+          api.delete(`api/tarefas/${identify}`);
+        } catch (error) {
+          console.log(error);
+        }
       }
-    }
-  };
+    },
+    [setTasks]
+  );
 
   return (
     <TasksContext.Provider value={{ tasks, setTasks, removeTask }}>

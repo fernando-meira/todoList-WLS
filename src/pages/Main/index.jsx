@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { FaListAlt } from 'react-icons/fa';
-
-import { useTasks } from '../../hooks/tasks';
+import { uuid } from 'uuidv4';
 
 import api from '../../services/api';
+import { useTasks } from '../../hooks/tasks';
 
 import {
   Input,
@@ -16,33 +16,34 @@ import {
 import { Container, Content, FormComponent, FormContent } from './styles';
 
 function Main() {
-  const [checked, setChecked] = useState(0);
   const { tasks, setTasks } = useTasks();
-
-  console.log(tasks);
+  const [checked, setChecked] = useState(0);
 
   const toggleCheck = useCallback(() => {
     const checkedValue = checked;
 
     return checkedValue === 0 ? setChecked(1) : setChecked(0);
-  }, [checked, tasks]);
+  }, [checked]);
 
-  const handleSubmit = (data, { reset }) => {
-    try {
-      api.post('api/tarefas', data);
-    } catch (error) {
-      console.log('Error', error);
-    }
+  const handleSubmit = useCallback(
+    (data, { reset }) => {
+      try {
+        api.post('api/tarefas', data);
+      } catch (error) {
+        console.log('Error', error);
+      }
 
-    const newTaks = {
-      ...data,
-      id: Math.random(),
-    };
+      const newTaks = {
+        ...data,
+        id: uuid(),
+      };
 
-    setTasks([...tasks, newTaks]);
+      setTasks([...tasks, newTaks]);
 
-    reset();
-  };
+      reset();
+    },
+    [tasks, setTasks]
+  );
 
   return (
     <>
