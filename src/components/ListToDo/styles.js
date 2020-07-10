@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import media from 'styled-media-query';
 
 import { pxToRem } from '../../functions';
 import { colors } from '../../themes';
@@ -9,6 +10,10 @@ export const Container = styled.div`
 
   display: flex;
   flex: 1;
+
+  ${media.lessThan('small')`
+    min-width: ${pxToRem(350)};
+  `}
 `;
 
 export const List = styled.ul`

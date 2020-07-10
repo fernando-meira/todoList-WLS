@@ -4,6 +4,7 @@ import { uuid } from 'uuidv4';
 
 import api from '../../services/api';
 import { useTasks } from '../../hooks/tasks';
+import { colors } from '../../themes';
 
 import {
   Input,
@@ -56,7 +57,7 @@ function Main() {
           <div>
             <FormContent>
               <h1>
-                <FaListAlt color="#5e68c3" size={24} />
+                <FaListAlt color={colors.purple} size={24} />
                 Lista de tarefas
               </h1>
               <FormComponent onSubmit={handleSubmit}>

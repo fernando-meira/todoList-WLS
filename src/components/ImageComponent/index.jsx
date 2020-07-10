@@ -1,6 +1,6 @@
 import React from 'react';
 
-import sideImage from '../../themes/assets/images/todoImage.svg';
+import sideImage from '../../themes/assets/images/BackgroundMobile.svg';
 
 import { Container } from './styles';
 

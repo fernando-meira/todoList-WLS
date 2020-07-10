@@ -1,4 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
+import media from 'styled-media-query';
+
+import backgroundTaks from './assets/images/BackgroundMobile.svg';
 
 export default createGlobalStyle`
 
@@ -11,11 +14,16 @@ export default createGlobalStyle`
 
   html,body, #root {
     min-height: 100%;
+
   }
 
   body {
     background: #f6f7f9;
     -webkit-font-smoothing: antialiased !important;
+
+    ${media.lessThan('small')`
+      background: url(${backgroundTaks}) no-repeat;
+    `}
   }
 
   body, input, button {

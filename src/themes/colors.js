@@ -3,8 +3,8 @@ export default {
   white: '#fff',
   lightGray: '#eee',
 
-  purple: '#5e68c3',
-  lightPurple: '#7F61AC',
+  purple: '#e8505b',
+  lightPurple: '#e8505b',
 
   transparent: 'transparent',
 };

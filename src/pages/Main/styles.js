@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { Form } from '@unform/web';
+import media from 'styled-media-query';
 
 import { pxToRem } from '../../functions';
+import { colors } from '../../themes';
 
 export const Container = styled.div`
   width: 100vw;
@@ -45,11 +47,23 @@ export const FormContent = styled.div`
     align-items: center;
 
     font-weight: 500;
+    color: ${colors.black};
 
     & svg {
       margin-right: ${pxToRem(8)};
     }
   }
+
+  ${media.lessThan('small')`
+    margin-top: 3rem;
+
+    > h1 {
+      font-weight: 700;
+      color: ${colors.black};
+      font-size: ${pxToRem(24)};
+      text-transform: uppercase;
+    }
+  `}
 `;
 
 export const FormComponent = styled(Form)`
@@ -71,4 +85,9 @@ export const FormComponent = styled(Form)`
   input + input {
     margin-top: ${pxToRem(10)};
   }
+
+  ${media.lessThan('small')`
+    max-width: 90%;
+    min-width: 300px;
+  `}
 `;
