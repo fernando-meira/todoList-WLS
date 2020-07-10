@@ -1,4 +1,4 @@
-![WLS Soluções](https://wlssistemas.com.br/wp-content/uploads/2020/06/wls-face.png)
+<center>![WLS Soluções](https://wlssistemas.com.br/wp-content/uploads/2020/06/wls-face.png)</center>
 
 # Projeto
 
