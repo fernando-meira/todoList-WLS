@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { FaListAlt } from 'react-icons/fa';
 
+import { useTasks } from '../../hooks/tasks';
+
 import api from '../../services/api';
 
 import {
@@ -14,8 +16,10 @@ import {
 import { Container, Content, FormComponent, FormContent } from './styles';
 
 function Main() {
-  const [tasks, setTasks] = useState([]);
   const [checked, setChecked] = useState(0);
+  const { tasks, setTasks } = useTasks();
+
+  console.log(tasks);
 
   const toggleCheck = useCallback(() => {
     const checkedValue = checked;
@@ -30,7 +34,6 @@ function Main() {
     //   console.log('Error', error);
     // }
 
-    console.log(data);
     setTasks([...tasks, data]);
 
     reset();

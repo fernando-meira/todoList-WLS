@@ -4,45 +4,64 @@ import { pxToRem } from '../../functions';
 import { colors } from '../../themes';
 
 export const Container = styled.div`
-  margin-top: 2rem;
+  width: 90%;
+  /* height: 742px; */
   min-width: ${pxToRem(500)};
 
   display: flex;
   flex: 1;
+`;
 
-  ul {
-    width: 90%;
+export const List = styled.ul`
+  width: 100%;
+  height: 90%;
+  margin: ${pxToRem(12)};
+  border-radius: ${pxToRem(12)};
 
-    li {
-      position: relative;
+  background: ${colors.lightPurple};
+`;
 
-      margin: 8px;
-      padding: 1rem;
-      border-radius: 4px;
-      border: 1px solid ${colors.purple};
+export const ListItem = styled.li`
+  max-width: 100%;
 
-      list-style: none;
-      background: #fff;
-      transition: transform 0.4s;
+  position: relative;
 
-      :hover {
-        transform: translateX(1rem);
-      }
+  margin: 8px;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid ${colors.purple};
 
-      > strong {
-        font-size: 1.5rem;
-        text-transform: initial;
-      }
+  list-style: none;
+  background: #fff;
+  transition: transform 0.4s;
 
-      > p {
-        font-size: ${pxToRem(14)};
-      }
+  :hover {
+    transform: scale(0.98);
+  }
 
-      > span {
-        position: absolute;
-        top: ${pxToRem(16)};
-        right: ${pxToRem(16)};
-      }
+  > strong {
+    font-size: 1.5rem;
+    text-transform: initial;
+  }
+
+  > p {
+    font-size: ${pxToRem(14)};
+  }
+
+  > span {
+    position: absolute;
+    top: ${pxToRem(16)};
+    right: ${pxToRem(16)};
+
+    > button {
+      border: none;
+
+      background: none;
+      color: ${colors.purple};
+    }
+
+    button + svg {
+      margin-left: ${pxToRem(6)};
     }
   }
 `;

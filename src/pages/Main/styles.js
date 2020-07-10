@@ -21,7 +21,9 @@ export const Content = styled.div`
   flex-direction: row;
   align-items: flex-start;
 
-  & div {
+  > div {
+    height: 100%;
+
     display: flex;
     flex: 1;
     align-items: center;
@@ -31,12 +33,12 @@ export const Content = styled.div`
 `;
 
 export const FormContent = styled.div`
-  margin-top: 10%;
+  max-height: 30%;
+  margin-top: ${pxToRem(32)};
 
   display: flex;
   align-items: center;
   flex-direction: column;
-  flex: 1;
 
   > h1 {
     display: flex;
