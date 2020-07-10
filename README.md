@@ -1,4 +1,4 @@
-![Logo WLS Soluções](https://www.facebook.com/wlssolucoes/photos/a.933865493362324/3016311841784335)
+![WLS Soluções](https://wlssistemas.com.br/wp-content/uploads/2020/06/wls-face.png)
 
 # Projeto
 
@@ -50,13 +50,11 @@ Inicie o projeto com o comando:
 Tarefas
 Lista dos métodos disponíveis.
 
-Método: GET
-Link: https://tarefas.viniciuss.dev/api/tarefas
+> Método: [GET](https://tarefas.viniciuss.dev/api/tarefas)
 
 Lista todas as tarefas.
 
-Método: POST
-Link: https://tarefas.viniciuss.dev/api/tarefas
+> Método: [POST](https://tarefas.viniciuss.dev/api/tarefas)
 
 Cria uma nova tarefa.
 
@@ -70,9 +68,23 @@ JSON exemplo:
     }
 ```
 
-Método: DELETE
-Link: https://tarefas.viniciuss.dev/api/tarefas/id
+> Método: [DELETE](https://tarefas.viniciuss.dev/api/tarefas/id)
 
-Link ex.: https://tarefas.viniciuss.dev/api/tarefas/5
+> Link ex.: https://tarefas.viniciuss.dev/api/tarefas/5
 
 Remove a tarefa com o id que foi passado.
+
+> Método: [PUT](https://tarefas.viniciuss.dev/api/tarefas/id)
+
+> Link ex.: https://tarefas.viniciuss.dev/api/tarefas/1
+
+Altera tarefa com o id informado.
+
+JSON exemplo:
+```
+    {
+        "titulo" : "Tarefa Um",
+        "descricao" : "Descrição alterada",
+        "concluido" : 1
+    }
+```
