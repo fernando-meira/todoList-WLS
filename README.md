@@ -1,7 +1,6 @@
 
 <div align="center">
   <img src="https://wlssistemas.com.br/wp-content/uploads/2020/06/wls-face.png" >
-  <p>WLS Soluções</p>
 </div>
 
 # Projeto
