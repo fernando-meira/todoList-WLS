@@ -32,7 +32,7 @@ export const Container = styled.div`
 export const List = styled.ul`
   width: 100%;
   height: 90%;
-  margin: ${pxToRem(12)};
+  margin: ${pxToRem(32)} 0;
   border-radius: 12px;
 
   background: ${colors.lightRed};

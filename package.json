@@ -21,7 +21,8 @@
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.1",
     "styled-media-query": "^2.1.2",
-    "uuidv4": "^6.1.1"
+    "uuidv4": "^6.1.1",
+    "yup": "^0.29.1"
   },
   "scripts": {
     "start": "react-scripts start",

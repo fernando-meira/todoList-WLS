@@ -19,5 +19,6 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'import/no-extraneous-dependencies': 'off',
     'import/no-cycle': 'off',
+    'no-unused-expressions': 'off',
   },
 };

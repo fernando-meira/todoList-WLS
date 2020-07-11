@@ -1,6 +1,8 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { FaListAlt } from 'react-icons/fa';
 import { uuid } from 'uuidv4';
+import * as Yup from 'yup';
+import getValidationErrors from '../../utils/getValidationErrors';
 
 import api from '../../services/api';
 import { useTasks } from '../../hooks/tasks';
@@ -17,6 +19,7 @@ import {
 import { Container, Content, FormComponent, FormContent } from './styles';
 
 function Main() {
+  const formRef = useRef(null);
   const { tasks, setTasks } = useTasks();
   const [checked, setChecked] = useState(0);
 
@@ -27,21 +30,35 @@ function Main() {
   }, [checked]);
 
   const handleSubmit = useCallback(
-    (data, { reset }) => {
+    async (data, { reset }) => {
       try {
+        formRef.current.setErrors({});
+
+        const schema = Yup.object().shape({
+          titulo: Yup.string().required('Título obrigatório'),
+          descricao: Yup.string().required('Descrição obrigatória'),
+          concluido: Yup.number(),
+        });
+
+        await schema.validate(data, {
+          abortEarly: false,
+        });
+
+        const newTaks = {
+          ...data,
+          id: uuid(),
+        };
+
+        setTasks([...tasks, newTaks]);
+
+        reset();
+
         api.post('api/tarefas', data);
       } catch (error) {
-        console.log('Error', error);
+        const errors = getValidationErrors(error);
+
+        formRef.current.setErrors(errors);
       }
-
-      const newTaks = {
-        ...data,
-        id: uuid(),
-      };
-
-      setTasks([...tasks, newTaks]);
-
-      reset();
     },
     [tasks, setTasks]
   );
@@ -60,7 +77,7 @@ function Main() {
                 <FaListAlt color={colors.black} size={24} />
                 Lista de tarefas
               </h1>
-              <FormComponent onSubmit={handleSubmit}>
+              <FormComponent ref={formRef} onSubmit={handleSubmit}>
                 <Input
                   name="titulo"
                   type="text"

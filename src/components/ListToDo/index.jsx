@@ -42,10 +42,10 @@ export default function ListToDo({ data }) {
 ListToDo.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number || PropTypes.string,
       titulo: PropTypes.string,
       descricao: PropTypes.string,
       concluido: PropTypes.number,
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     })
   ).isRequired,
 };

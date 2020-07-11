@@ -22,7 +22,7 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased !important;
 
     ${media.lessThan('large')`
-      background: url(${backgroundTaks}) no-repeat;
+      background: url(${backgroundTaks}) no-repeat 0 15%;
     `}
   }
 
