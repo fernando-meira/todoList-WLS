@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://wlssistemas.com.br/wp-content/uploads/2020/06/wls-face.png" >
+  <img src="https://github.com/fernando-meira/todoList-WLS/blob/master/src/themes/assets/images/preview.png" >
 </div>
 
 # Projeto
@@ -10,7 +10,7 @@ O Projeto mostra uma lista de tarefas, onde é possível criar, excluir e listar
 
 ## Demo
 
-- [Demo](https://todowls.netlify.app/)
+- [ToDoWLS](https://todowls.netlify.app/)
 
 ### Melhorias
 
